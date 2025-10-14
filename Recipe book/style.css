@@ -1,0 +1,358 @@
+/* ============================================
+   Root Variables: Theme colors, shadow, radius
+   ============================================ */
+:root {
+  --bg: #fffdf7; /* Soft Cream background */
+  --card: #ffffff; /* White card background */
+  --accent: #077a6e; /* Fresh Mint accent */
+  --cta: #ff6b6b; /* Warm Coral call-to-action */
+  --text: #2c2c2c; /* Charcoal text */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for cards */
+  --radius: 12px; /* Rounded corners */
+}
+
+/* Universal box-sizing for consistency */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   Base Body Styles
+   ============================================ */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Hero Section (Banner)
+   ============================================ */
+.hero {
+  position: relative;
+  background: url("https://source.unsplash.com/1600x400/?food,kitchen")
+    center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+}
+
+.hero-overlay {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 4px #000;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Add Recipe Form
+   ============================================ */
+.add-recipe {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 30px auto;
+}
+
+.add-recipe h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+#recipeForm input[type="text"],
+#recipeForm textarea,
+#recipeForm input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+#recipeForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#recipeForm button {
+  background: var(--cta);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+#recipeForm button:hover {
+  background: #cb0b0b;
+}
+
+/* ============================================
+   Search Bar
+   ============================================ */
+.search-section {
+  text-align: center;
+  margin: 30px 0;
+}
+
+#searchInput {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+/* ============================================
+   Recipe Cards Grid
+   ============================================ */
+.recipes-section {
+  margin: 40px 0;
+}
+
+.recipes-section h2 {
+  text-align: center;
+  color: var(--accent);
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-card .content {
+  padding: 15px;
+}
+
+.recipe-card h3 {
+  margin: 0 0 10px;
+  color: var(--accent);
+}
+
+.recipe-card button {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.recipe-card button:hover {
+  background: #055d53;
+}
+
+/* ============================================
+   Modal Styles
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: var(--card);
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: var(--radius);
+  max-width: 90%;
+  width: 500px;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+}
+
+.modal-content h3 {
+  margin-top: 15px;
+  color: var(--accent);
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.close {
+  color: var(--cta);
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 50px;
+}
+
+.footer-content p {
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+footer form {
+  margin-top: 20px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow);
+}
+
+footer form h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+footer form input,
+footer form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+footer form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+footer form button {
+  background: var(--cta);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+footer form button:hover {
+  background: #e61b1b;
+}
+
+/* ============================================
+   Animation
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Responsive adjustments for smaller screens
+   ============================================ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .recipe-card img {
+    height: 140px;
+  }
+  .modal-content {
+    width: 95%;
+    margin-top: 20%;
+  }
+}

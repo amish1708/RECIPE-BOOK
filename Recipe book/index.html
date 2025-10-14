@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recipe Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1>🧑‍🍳 My Recipe Book</h1>
+        <p>Discover, Cook & Share Delicious Veg Recipes</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Add New Recipe Form -->
+      <section class="add-recipe">
+        <h2>Add New Recipe</h2>
+        <form id="recipeForm">
+          <input type="text" id="name" placeholder="Recipe Name" required />
+          <textarea
+            id="ingredients"
+            placeholder="Ingredients (comma separated)"
+            required
+          ></textarea>
+          <textarea
+            id="steps"
+            placeholder="Preparation Steps"
+            required
+          ></textarea>
+          <input type="file" id="image" accept="image/*" required />
+          <button type="submit">Add Recipe</button>
+        </form>
+      </section>
+
+      <!-- Search Bar -->
+      <section class="search-section">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Search recipes by name or ingredients..."
+        />
+      </section>
+
+      <!-- container for recipe cards -->
+      <section class="recipes-section">
+        <h2>All Recipes</h2>
+        <div id="recipesList" class="recipes-grid"></div>
+      </section>
+    </main>
+
+    <!--  Modal for View Details -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2 id="modalName"></h2>
+        <img id="modalImage" src="" alt="" />
+        <h3>Ingredients</h3>
+        <p id="modalIngredients"></p>
+        <h3>Steps</h3>
+        <p id="modalSteps"></p>
+      </div>
+    </div>
+
+    <!--  Footer -->
+    <footer>
+      <div class="footer-content">
+        <form id="contactForm">
+          <h3>Contact Me</h3>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+
+        <p>🍲 My Recipe Book — Created with love for Food Lovers</p>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
